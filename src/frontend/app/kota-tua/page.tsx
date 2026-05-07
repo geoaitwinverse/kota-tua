@@ -1,4 +1,8 @@
-import KotaTuaView from "./kotaTuaView";
+import dynamic from "next/dynamic";
+
+const KotaTuaView = dynamic(() => import("./kotaTuaView"), {
+  ssr: false,
+});
 
 export default function KotaTuaPage() {
   return (
