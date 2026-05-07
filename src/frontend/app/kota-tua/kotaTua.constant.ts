@@ -1,3 +1,4 @@
+"use client";
 import { Cartesian3, Math as CesiumMath, Ion } from "cesium";
 
 // Set default Cesium Ion access token
