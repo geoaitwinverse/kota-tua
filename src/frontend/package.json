@@ -1,0 +1,33 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "symlink-dir node_modules/cesium/Build/Cesium public/cesium"
+  },
+  "dependencies": {
+    "@nextui-org/react": "^2.6.11",
+    "cesium": "^1.141.0",
+    "framer-motion": "^12.38.0",
+    "next": "14.2.35",
+    "react": "^18",
+    "react-dom": "^18",
+    "resium": "^1.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "copy-webpack-plugin": "^14.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "postcss": "^8",
+    "symlink-dir": "^10.0.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
