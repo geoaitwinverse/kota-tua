@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 const KotaTuaView = dynamic(() => import("./kotaTuaView"), {
   ssr: false,
@@ -7,7 +8,9 @@ const KotaTuaView = dynamic(() => import("./kotaTuaView"), {
 export default function KotaTuaPage() {
   return (
     <main className="w-full h-screen overflow-hidden">
-      <KotaTuaView />
+      <ErrorBoundary>
+        <KotaTuaView />
+      </ErrorBoundary>
     </main>
   );
 }
