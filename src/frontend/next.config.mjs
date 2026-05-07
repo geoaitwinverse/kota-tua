@@ -14,10 +14,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  serverExternalPackages: ["cesium"],
-  experimental: {
-    serverComponentsExternalPackages: ["cesium"],
-  },
 };
 
 export default nextConfig;
