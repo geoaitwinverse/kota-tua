@@ -7,8 +7,9 @@ const KotaTuaView = dynamic(() => import("./kotaTuaView"), {
 export default function KotaTuaPage() {
   return (
     <main className="w-full h-screen overflow-hidden">
-      //<KotaTuaView />
-      Hello World
+
+      <KotaTuaView />
+
     </main>
   );
 }
