@@ -7,13 +7,24 @@ const nextConfig = {
       })
     );
 
-    // Prevent cesium/resium from being bundled on the server
+    // Prevent server from trying to bundle browser-only Cesium code
     if (isServer) {
       config.externals = [
-        ...(config.externals || []),
+        ...(Array.isArray(config.externals) ? config.externals : []),
         "cesium",
         "resium",
       ];
+    }
+
+    // Needed for Cesium in browser environment
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        http: false,
+        https: false,
+        zlib: false,
+      };
     }
 
     return config;

@@ -11,12 +11,17 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.6.11",
-    "cesium": "^1.131.0",
+    "cesium": "1.131.0",
     "framer-motion": "^12.38.0",
     "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18",
-    "resium": "^1.18.3"
+    "resium": "1.18.3"
+  },
+  "overrides": {
+    "@cesium/engine": {
+      "@zip.js/zip.js": "2.7.52"
+    }
   },
   "devDependencies": {
     "@types/node": "^20",
