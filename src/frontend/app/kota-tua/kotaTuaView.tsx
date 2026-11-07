@@ -38,6 +38,8 @@ import {
   DEFAULT_CAMERA_ORIENTATION,
   IMAGERY_CONFIG,
   BASEMAP_OPTIONS,
+  BUCKET_URL,
+  S3_URL,
 } from "./kotaTua.constant";
 
 interface GeoJSONProperties {
@@ -61,15 +63,15 @@ interface GeoJSONFeature {
 
 const TILESETS: Record<string, string> = {
   "1619":
-    "https://bucket.dt-jakarta.geo-ai.id/model3d/kota-tua/1619/tileset.json",
+    `${BUCKET_URL}/model3d/kota-tua/1619/tileset.json`,
   "1627":
-    "https://bucket.dt-jakarta.geo-ai.id/model3d/kota-tua/1627/tileset.json",
+    `${BUCKET_URL}/model3d/kota-tua/1627/tileset.json`,
   "1635":
-    "https://bucket.dt-jakarta.geo-ai.id/model3d/kota-tua/1635/tileset.json",
+    `${BUCKET_URL}/model3d/kota-tua/1635/tileset.json`,
   "1650":
-    "https://bucket.dt-jakarta.geo-ai.id/model3d/kota-tua/1650/tileset.json",
+    `${BUCKET_URL}/model3d/kota-tua/1650/tileset.json`,
   "2023":
-    "https://digital-twin-ugm.s3.ap-southeast-1.amazonaws.com/assets/2023/tileset.json",
+    `${S3_URL}/assets/2023/tileset.json`,
 
 };
 
@@ -133,7 +135,7 @@ export default function KotaTuaView() {
     if (cesiumRef.current?.cesiumElement) {
       try {
         const terrainProvider = await CesiumTerrainProvider.fromUrl(
-          "https://digital-twin-ugm.s3.ap-southeast-1.amazonaws.com/terrain/dtm6/"
+          `${S3_URL}/terrain/dtm6/`
         );
         cesiumRef.current.cesiumElement.terrainProvider = terrainProvider;
         cesiumRef.current.cesiumElement.scene.globe.depthTestAgainstTerrain =

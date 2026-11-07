@@ -5,6 +5,10 @@ import { Cartesian3, Math as CesiumMath, Ion } from "cesium";
 Ion.defaultAccessToken = process.env.NEXT_PUBLIC_CESIUM_ACCESS_TOKEN as string;
 
 const STADIA_API_KEY = process.env.NEXT_PUBLIC_STADIA_API_KEY || "";
+
+// Storage hosts for map tiles, 3D tilesets and terrain (no trailing slash)
+export const BUCKET_URL = process.env.NEXT_PUBLIC_BUCKET_URL || "";
+export const S3_URL = process.env.NEXT_PUBLIC_S3_URL || "";
 const stadiaUrl = (style: string, ext = "jpg") =>
   `https://tiles.stadiamaps.com/tiles/${style}/{z}/{x}/{y}.${ext}?api_key=${STADIA_API_KEY}`;
 
@@ -20,19 +24,19 @@ interface ImageryConfig {
 export const IMAGERY_CONFIG: Record<string, ImageryConfig> = {
   "1619": {
     url: stadiaUrl("stamen_terrain_background"),
-    overlayUrl: "https://bucket.dt-jakarta.geo-ai.id/kota-tua/maps/1619/{z}/{x}/{y}.png",
+    overlayUrl: `${BUCKET_URL}/kota-tua/maps/1619/{z}/{x}/{y}.png`,
   },
   "1627": {
     url: stadiaUrl("stamen_watercolor"),
-    overlayUrl: "https://bucket.dt-jakarta.geo-ai.id/kota-tua/maps/1627/{z}/{x}/{y}.png",
+    overlayUrl: `${BUCKET_URL}/kota-tua/maps/1627/{z}/{x}/{y}.png`,
   },
   "1635": {
     url: "https://tile.openstreetmap.de/{z}/{x}/{y}.png",
-    overlayUrl: "https://bucket.dt-jakarta.geo-ai.id/kota-tua/maps/1635/{z}/{x}/{y}.png",
+    overlayUrl: `${BUCKET_URL}/kota-tua/maps/1635/{z}/{x}/{y}.png`,
   },
   "1650": {
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
-    overlayUrl: "https://bucket.dt-jakarta.geo-ai.id/kota-tua/maps/1650/{z}/{x}/{y}.png",
+    overlayUrl: `${BUCKET_URL}/kota-tua/maps/1650/{z}/{x}/{y}.png`,
   },
   "2023": {
     url: stadiaUrl("alidade_smooth", "png"),
